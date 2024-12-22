@@ -11,29 +11,31 @@
             font-family: 'Font Awesome 6 Free';
             font-style: normal;
             font-weight: 900;
-            src: url('fa-solid-900.woff2') format('woff2');
+            src: url('spel/static/fa-solid-900.woff2') format('woff2');
         }
         /* General styling */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7fc;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
         }
 
-        /* Container styling */
+
+
         .container {
-            background: #fff;
-            border-radius: 10px;
-            padding: 30px;
-            width: 400px;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
             text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            max-height: 450px;
+            margin: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex: 1;
         }
 
         /* Header styling */
@@ -104,6 +106,13 @@
             background-color: #00408d;
         }
 
+                /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
     </style>
 </head>
 <body>
@@ -130,6 +139,9 @@
         <input type="submit" value="Upload">
     </form>
 </div>
+<footer>
+    <p>&copy; 2024 SPEL maintained by Hasan Ali Özkan</p>
+</footer>
 
 <script>
     // Allow drop event
