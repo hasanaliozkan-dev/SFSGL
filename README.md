@@ -1,3 +1,3 @@
 
-## **SPEL (Simple Programming Exam Library)**
+## **SPEL (Simple File Sharing Gathering Library)**
 
