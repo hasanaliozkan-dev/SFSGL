@@ -5,7 +5,7 @@ def run_file_gather():
     subprocess.run(["python3", "file_gather.py", "uploads", "py,zip"])
 
 def run_file_share():
-    subprocess.run(["python3", "file_share.py", "deneme"])
+    subprocess.run(["python3", "file_share.py", "shared"])
 
 if __name__ == "__main__":
     gather_process = multiprocessing.Process(target=run_file_gather)
