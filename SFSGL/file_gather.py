@@ -5,8 +5,12 @@ import sys
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = sys.argv[1] if len(sys.argv) > 1 else 'uploads'
-ALLOWED_EXTENSIONS = sys.argv[2].split(',') if len(sys.argv) > 2 else {'zip','py'}
+UPLOAD_FOLDER = sys.argv[1]
+ALLOWED_EXTENSIONS = sys.argv[2].split(',')
+MULTIPLE_UPLOAD = sys.argv[3] == "True" 
+ADD_IP_TO_FILENAME = sys.argv[4] == "True"
+
+
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 uploaded_ips = {}
@@ -24,7 +28,7 @@ def upload_file():
 
     
     # Check if the client IP has already uploaded a file
-    if client_ip in uploaded_ips and uploaded_ips[client_ip]:
+    if not MULTIPLE_UPLOAD and client_ip in uploaded_ips and uploaded_ips[client_ip]:
         error_message = "You can only upload one file per IP address."
         return render_template("file_gather.html", error_message=error_message,allowed_file=allowed_file_str)
 
@@ -45,13 +49,18 @@ def upload_file():
             if file and allowed_file(file.filename):
                 filename = werkzeug.utils.secure_filename(file.filename)
                 name, extension = os.path.splitext(filename)
-                new_filename = f"{name}_{client_ip}{extension}"
+                if ADD_IP_TO_FILENAME:
+
+                    new_filename = f"{name}_{client_ip}{extension}"
+                else:
+                    new_filename = filename
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], new_filename))
             else:
                 error_message = f"File type not allowed. Please upload only {', '.join(ALLOWED_EXTENSIONS)} files."
                 return render_template("file_gather.html", error_message=error_message,allowed_file=allowed_file_str)
 
-        uploaded_ips[client_ip] = True  # Mark the IP as having uploaded a file
+        if not MULTIPLE_UPLOAD:
+            uploaded_ips[client_ip] = True
         error_message = f"File(s) uploaded successfully."
         return render_template("file_gather.html", error_message=error_message,allowed_file=allowed_file_str)
 
