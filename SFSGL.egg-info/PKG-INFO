@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: SFSGL
+Version: 0.1.0
+Summary: Simple File Sharing and Gathering Library
+Author: Hasan Ali Özkan
+Requires-Python: >=3.6
+Requires-Dist: flask
+Requires-Dist: werkzeug

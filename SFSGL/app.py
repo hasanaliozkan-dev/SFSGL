@@ -7,7 +7,7 @@ config = json.load(open("configuration.json"))
 
 
 def run_file_gather():
-    subprocess.run(["python3", "file_gather.py", config["gathered_folder_path"], ",".join(config["allowed_extension_to_gather"]),config["allow_multiple_upload"],config["add_ip_to_filename"]])
+    subprocess.run(["python3", "file_gather.py", config["gathered_folder_path"], ",".join(config["allowed_extension_to_gather"]),config["allow_multiple_upload"],config["add_ip_to_file"]])
 
 def run_file_share():
     subprocess.run(["python3", "file_share.py", config["shared_folder_path"], ",".join(config["allowed_extension_to_share"])])
