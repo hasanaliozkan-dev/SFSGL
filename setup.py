@@ -8,7 +8,13 @@ setup(
     author='Hasan Ali Özkan',
     description='Simple File Sharing and Gathering Library',
     name='SFSGL',
-    version='0.1.0',
+    version='0.1.2',
+    url='https://github.com/hasanaliozkan-dev/SFSGL/',
+    project_urls={
+        "Source Code": "https://github.com/hasanaliozkan-dev/SFSGL/",
+        "Bug Tracker": "https://github.com/hasanaliozkan-dev/SFSGL/issues",
+        "Documentation": "https://github.com/hasanaliozkan-dev/SFSGL/blob/main/README.md"
+    },
     packages=find_packages(),
     install_requires=['flask', 'werkzeug'],
     python_requires='>=3.6',
