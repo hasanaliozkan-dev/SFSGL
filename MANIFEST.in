@@ -1,0 +1,3 @@
+include SFSGL/*.py
+include SFSGL/static/*
+include SFSGL/templates/*
