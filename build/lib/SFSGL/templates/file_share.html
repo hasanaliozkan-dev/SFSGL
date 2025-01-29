@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Files for Download</title>
+    <style>
+        @font-face {
+            font-family: 'Font Awesome 6 Free';
+            font-style: normal;
+            font-weight: 900;
+            src: url('spel/static/fa-solid-900.woff2') format('woff2');
+        }
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Header */
+        h1 {
+            text-align: center;
+            color: #0056b3;
+            margin-top: 20px;
+            font-size: 2rem;
+        }
+
+        /* Container for the file list */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        /* List styling */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 10px;
+            margin: 8px 0;
+            background: #e9f5ff;
+            border: 1px solid #d0e8ff;
+            border-radius: 6px;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        ul li a {
+            display: flex; /* Use flexbox to arrange name and icon */
+            justify-content: space-between; /* Space between name and icon */
+            align-items: center; /* Vertically align text and icon */
+            padding: 10px;
+            background: #e9f5ff;
+            border: 1px solid #d0e8ff;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #0056b3;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+        ul li:hover {
+            background-color: #cfe6ff;
+            transform: scale(1.02);
+        }
+        ul li a .icon {
+            font-size: 1.2rem; /* Adjust icon size */
+            color: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Available Files for Download
+
+            
+        </h1>
+        {% if files %}
+            <ul>
+                {% for file in files %}
+                    <li>
+                        <a href="{{ url_for('download_file', filename=file) }}">
+                           {{ file }}
+                              <span class="icon">
+                                <svg width="30px" height="30px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(0)matrix(1, 0, 0, 1, 0, 0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3 15C3 17.8284 3 19.2426 3.87868 20.1213C4.75736 21 6.17157 21 9 21H15C17.8284 21 19.2426 21 20.1213 20.1213C21 19.2426 21 17.8284 21 15" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 3V16M12 16L16 11.625M12 16L8 11.625" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                            </span>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No files available for download.</p>
+        {% endif %}
+    </div>
+    <footer>
+        <p>&copy; 2024 SFSGL is a  <strong>CommonCodeBase</strong> project maintained by Hasan Ali Özkan</p>
+    </footer>
+</body>
+</html>

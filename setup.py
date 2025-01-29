@@ -8,7 +8,7 @@ setup(
     author='Hasan Ali Özkan',
     description='Simple File Sharing and Gathering Library',
     name='SFSGL',
-    version='0.1.7',
+    version='0.1.9',
     url='https://github.com/hasanaliozkan-dev/SFSGL/',
     project_urls={
         "Source Code": "https://github.com/hasanaliozkan-dev/SFSGL/",

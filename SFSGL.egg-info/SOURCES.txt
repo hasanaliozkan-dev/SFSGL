@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.py
+SFSGL/__init__.py
+SFSGL/sfsgl.py
+SFSGL.egg-info/PKG-INFO
+SFSGL.egg-info/SOURCES.txt
+SFSGL.egg-info/dependency_links.txt
+SFSGL.egg-info/requires.txt
+SFSGL.egg-info/top_level.txt
+SFSGL/static/fa-solid-900.woff2
+SFSGL/templates/file_gather.html
+SFSGL/templates/file_share.html
