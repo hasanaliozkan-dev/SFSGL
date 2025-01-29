@@ -2,7 +2,7 @@
 # **SFSGL (Simple File Sharing Gathering Library)**
 
 ### Description
-This is a simple file sharing and gathering library. It provides a simple interface to share and gather files. The library is implemented using Flask and Flask-RESTful. The library provides two interfaces, one for sharing files and the other for gathering files. The library is implemented in a way that it can be used as a standalone application. The main purpose of this library is applying programming course assignments and quizes in a safe and secure way (without using of ChatGPT, Copilot, etc.). For example in your lab if you have an intranet you can share your programming assignments with your students and gather their solutions without using any other tools. They only reach your server they can't connect outside of the lab network.
+This is a simple file-sharing and gathering library. It provides a simple interface to share and gather files. The library is implemented using Flask and Flask-RESTful. The library provides two interfaces, one for sharing files and the other for gathering files. The library is implemented in a way that it can be used as a standalone application. This library's main purpose is to apply programming course assignments and quizzes safely and securely (without using ChatGPT, Copilot, etc.). For example, in your lab, if you have an intranet you can share your programming assignments with your students and gather their solutions without using any other tools. They only reach your server and they can't connect outside of the lab network.
 
 ### Installation
 You can install the library using pip.
@@ -12,7 +12,7 @@ pip install sfsgl
 ```
 
 ### Docker installation and running
-You can run this docker command to build and run the application using docker container.
+You can run this docker command to build and run the application using the docker container.
 ```bash
 docker build -t my-python-app .
 docker run -p 5001:5001 -p 5002:5002 my-python-app
@@ -36,7 +36,7 @@ python -m sfsgl
         session.start()
 ```
 
-!!! You have to specify exact path of the shared folder otherwise the library cannot find your folder path. 
+!!! You'll need to specify the the exact path of the shared folder otherwise the library cannot find your folder path. 
 
 
 
@@ -52,7 +52,7 @@ python -m sfsgl
 
 - allow_multiple_upload : boolean value to allow multiple file upload per user, default is ```"True"```
 
-- add_ip_to_file : boolean value to add the ip address of the user to the file name, default is ```"True"```
+- add_ip_to_file : boolean value to add the IP address of the user to the file name, default is ```"True"```
 
 - shared_port : port number to file sharing interface, default is ```5001```
 
@@ -63,11 +63,34 @@ python -m sfsgl
 
 
 
-### Contrubution
-You can contribute to the library by forking the repository and sending a pull request. You can also report bugs and feature requests by creating an issue.
-Btw. the author has no idea about the security of the library. If you find a security issue do not hesitate to fix is  and send a pull request. 
+### Contribution
+You can contribute to the library by forking the repository and sending a pull request. 
+You can also report bugs and feature requests by creating an issue. Btw. the author has
+no idea about the security of the library. If you find a security issue do not hesitate 
+to fix it  and send a pull request. 
 
 
 
 ### License
 
+MIT License
+
+Copyright (c) 2025 Hasan Ali ÖZKAN
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
