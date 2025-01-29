@@ -1,3 +1,6 @@
+#@author: Hasan Ali Özkan
+
+
 import multiprocessing
 from flask import Flask, request, render_template, send_from_directory
 import os
@@ -27,7 +30,7 @@ class SFSGL():
 
     def run_file_gather(self):
         gather_app = FileGather(
-            shared_folder_path=self._gathered_folder_path,
+            gathered_folder_path=self._gathered_folder_path,
             allowed_extension_to_gather=self._allowed_extension_to_gather,
             allow_multiple_upload=self._allow_multiple_upload,
             add_ip_to_file=self._add_ip_to_file,
@@ -47,14 +50,14 @@ class SFSGL():
 class FileGather():
     def __init__(self, **kwargs):
         self._init_kwargs = kwargs
-        self._shared_folder_path = kwargs.get("shared_folder_path", "shared")
+        self._gathered_folder_path = kwargs.get("gathered_folder_path", "shared")
         self._allowed_extension_to_gather = kwargs.get("allowed_extension_to_gather", ["py","zip"])
         self._allow_multiple_upload = kwargs.get("allow_multiple_upload", "False")
         self._add_ip_to_file = kwargs.get("add_ip_to_file", "True")
         self._port = kwargs.get("port", 5002)
         
         self.app = Flask(__name__, static_folder='static', template_folder='templates')
-        self.UPLOAD_FOLDER = self._shared_folder_path
+        self.UPLOAD_FOLDER = self._gathered_folder_path
         self.ALLOWED_EXTENSIONS = set(self._allowed_extension_to_gather)
         self.MULTIPLE_UPLOAD = self._allow_multiple_upload.lower() == 'true'
         self.uploaded_ips = {}
@@ -89,42 +92,42 @@ class FileGather():
                 filename = werkzeug.utils.secure_filename(file.filename)
                 file.save(os.path.join(self.app.config['UPLOAD_FOLDER'], filename))
                 self.uploaded_ips[client_ip] = True
-                return "File successfully uploaded"
+                return render_template("file_gather.html", success_message="File uploaded successfully.", allowed_file=allowed_file_str)
         return render_template("file_gather.html", allowed_file=allowed_file_str)
 
     def run(self):
-        self.app.run(port=self._port)
+        self.app.run(host='0.0.0.0',port=self._port)
 
 
 class FileShare():
-    def __init__(self, folder_name, allowed_extensions, port=5001):
+    def __init__(self,**kwargs):
         self.app = Flask(__name__, static_folder='static', template_folder='templates')
-        self.EXAMPLE_FOLDER = folder_name
-        self.ALLOWED_EXTENSIONS = set(allowed_extensions)
-        self.port = port
+        self._shared_folder_path = kwargs.get("shared_folder_path", "shared")
+        self._allowed_extension_to_share = kwargs.get("allowed_extension_to_share", ["py","zip","txt"])
+        self._port = kwargs.get("port", 5001)
 
         self.app.add_url_rule('/', 'index', self.index)
         self.app.add_url_rule('/download/<filename>', 'download_file', self.download_file)
 
     def allowed_file(self, filename):
-        return '.' in filename and filename.rsplit('.', 1)[1].lower() in self.ALLOWED_EXTENSIONS
+        return '.' in filename and filename.rsplit('.', 1)[1].lower() in self._allowed_extension_to_share
 
     def index(self):
         try:
-            files = [f for f in os.listdir(self.EXAMPLE_FOLDER) if self.allowed_file(f)]
+            files = [f for f in os.listdir(self._shared_folder_path) if self.allowed_file(f)]
             return render_template('file_share.html', files=files)
         except Exception as e:
             self.app.logger.error(f"Error rendering template: {e}")
             return "Internal Server Error", 500
 
     def download_file(self, filename):
-        if self.allowed_file(filename) and os.path.isfile(os.path.join(self.EXAMPLE_FOLDER, filename)):
-            return send_from_directory(self.EXAMPLE_FOLDER, filename, as_attachment=True)
+        if self.allowed_file(filename) and os.path.isfile(os.path.join(self._shared_folder_path, filename)):
+            return send_from_directory(self._shared_folder_path, filename, as_attachment=True)
         else:
             return "File not found or invalid file type", 404
 
     def run(self):
-        self.app.run(host='0.0.0.0', port=self.port)
+        self.app.run(host='0.0.0.0', port=self._port)
 
 
 if __name__ == '__main__':

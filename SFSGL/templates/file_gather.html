@@ -1,3 +1,4 @@
+<!--@Author: Hasan Ali Özkan-->
 
 <!doctype html>
 <html lang="en">
@@ -88,6 +89,15 @@
             margin-top: 15px;
             display: inline-block;
         }
+        .success{
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: inline-block;
+        }
 
         /* Submit button */
         input[type="submit"] {
@@ -123,6 +133,9 @@
     {% if error_message %}
         <div class="alert">{{ error_message }}</div>
     {% endif %}
+    {% if success_message %}
+    <div class="success">{{ success_message }}</div>
+    {% endif %}
 
     <form method="post" enctype="multipart/form-data">
         <div id="drop-area" class="file-upload" ondrop="dropFile(event)" ondragover="allowDrop(event)" onclick="triggerFileInput()">
@@ -133,14 +146,14 @@
             </span>
             <p>Drag and drop files here, or click to select</p>
             <em><span>Allowed file types:  {{allowed_file}}</span></em>
-            <input type="file" name="files" id="fileInput" style="display: none;" onchange="handleFileSelect(event)" multiple>
+            <input type="file" name="file" id="fileInput" style="display: none;" onchange="handleFileSelect(event)" multiple>
         </div>
         <div id="fileList" class="file-list"></div>
         <input type="submit" value="Upload">
     </form>
 </div>
 <footer>
-    <p>&copy; 2024 SPEL maintained by Hasan Ali Özkan</p>
+    <p>&copy; 2024 SFSGL is a CommonCodeBase project maintained by Hasan Ali Özkan</p>
 </footer>
 
 <script>
