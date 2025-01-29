@@ -40,8 +40,8 @@ class SFSGL():
 
     def run_file_share(self):
         share_app = FileShare(
-            folder_name=self._shared_folder_path,
-            allowed_extensions=self._allowed_extension_to_share,
+            shared_folder_path=self._shared_folder_path,
+            allowed_extension_to_share=self._allowed_extension_to_share,
             port=self._shared_port
         )
         share_app.run()
