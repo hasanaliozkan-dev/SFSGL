@@ -27,6 +27,16 @@ You can use the library as a standalone application. You can run the following c
 python -m sfsgl
 ```
 
+### Example Usage
+```python 
+    from SFSGL.sfsgl import SFSGL
+
+    if __name__ == '__main__':
+        session = SFSGL(shared_folder_path= "exact_path_to_shared_folder")
+        session.start()
+```
+
+!!! You have to specify exact path of the shared folder otherwise the library cannot find your folder path. 
 
 
 
@@ -45,7 +55,9 @@ python -m sfsgl
 - add_ip_to_file : boolean value to add the ip address of the user to the file name, default is ```"True"```
 
 - shared_port : port number to file sharing interface, default is ```5001```
+
 - gathered_port : port number to file gathering interface, default is ```5002```
+
 
 
 
