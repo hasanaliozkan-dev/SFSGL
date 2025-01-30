@@ -1,7 +1,6 @@
 ![Badge](https://img.shields.io/pypi/v/SFSGL.svg)
 [![License - MIT 3-Clause](https://img.shields.io/pypi/l/sfsgl.svg)](https://github.com/hasanaliozkan-dev/sfsgl/blob/main/LICENSE)
-
-![PyPI Downloads](https://static.pepy.tech/badge/sfsgl?label=PyPI%20Downloads)
+[![PyPI Downloads](https://static.pepy.tech/badge/sfsgl?label=PyPI%20Downloads)](https://pepy.tech/projects/sfsgl)
 
 # **SFSGL (Simple File Sharing Gathering Library)**
 
