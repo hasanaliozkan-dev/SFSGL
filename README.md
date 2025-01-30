@@ -1,4 +1,4 @@
-https://img.shields.io/pypi/v/SFSGL.svg
+.. image:: https://img.shields.io/pypi/v/SFSGL.svg
 # **SFSGL (Simple File Sharing Gathering Library)**
 
 ### Description
