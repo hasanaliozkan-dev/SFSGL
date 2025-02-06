@@ -4,6 +4,19 @@
 ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=hasanaliozkan-dev/SFSGL)
 
 # **SFSGL (Simple File Sharing Gathering Library)**
+```bash
+███████╗███████╗███████╗ ██████╗ ██╗
+██╔════╝██╔════╝██╔════╝██╔════╝ ██║
+███████╗█████╗  ███████╗██║  ███╗██║
+╚════██║██╔══╝  ╚════██║██║   ██║██║
+███████║██║     ███████║╚██████╔╝███████╗
+╚══════╝╚═╝     ╚══════╝ ╚═════╝ ╚══════╝
+┌───────────────────────────────────────┐
+│Simple File Sharing & Gathering Library│
+└───────────────────────────────────────┘
+```
+
+
 
 ### Description
 This is a simple file-sharing and gathering library. It provides a simple interface to share and gather files. The library is implemented using Flask and Flask-RESTful. The library provides two interfaces, one for sharing files and the other for gathering files. The library is implemented in a way that it can be used as a standalone application. This library's main purpose is to apply programming course assignments and quizzes safely and securely (without using ChatGPT, Copilot, etc.). For example, in your lab, if you have an intranet you can share your programming assignments with your students and gather their solutions without using any other tools. They only reach your server and they can't connect outside of the lab network.
