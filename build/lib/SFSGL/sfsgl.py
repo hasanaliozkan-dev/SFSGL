@@ -130,6 +130,9 @@ class FileShare():
         self.app.run(host='0.0.0.0', port=self._port)
 
 
-if __name__ == '__main__':
+def main():
     a = SFSGL(shared_folder_path="shared", gathered_folder_path="gathered", allowed_extension_to_gather=["py","zip"], allowed_extension_to_share=["py","zip","txt"], allow_multiple_upload="False", add_ip_to_file="True", shared_port=5001, gathered_port=5002)
     a.start()
+
+if __name__ == '__main__':
+    main()

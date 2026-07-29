@@ -1,0 +1,2 @@
+[console_scripts]
+sfsgl = SFSGL.sfsgl:main

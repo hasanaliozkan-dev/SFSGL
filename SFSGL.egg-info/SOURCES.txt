@@ -4,11 +4,12 @@ README.md
 setup.py
 SFSGL/__init__.py
 SFSGL/sfsgl.py
-SFSGL.egg-info/PKG-INFO
-SFSGL.egg-info/SOURCES.txt
-SFSGL.egg-info/dependency_links.txt
-SFSGL.egg-info/requires.txt
-SFSGL.egg-info/top_level.txt
 SFSGL/static/fa-solid-900.woff2
 SFSGL/templates/file_gather.html
 SFSGL/templates/file_share.html
+sfsgl.egg-info/PKG-INFO
+sfsgl.egg-info/SOURCES.txt
+sfsgl.egg-info/dependency_links.txt
+sfsgl.egg-info/entry_points.txt
+sfsgl.egg-info/requires.txt
+sfsgl.egg-info/top_level.txt

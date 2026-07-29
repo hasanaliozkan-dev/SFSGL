@@ -1,3 +1,4 @@
-include SFSGL/*.py
-include SFSGL/static/*
-include SFSGL/templates/*
+include README.md
+include LICENSE
+recursive-include SFSGL/templates *.html
+recursive-include SFSGL/static *
