@@ -19,7 +19,7 @@
 - Command-line options for folders, file types, ports, upload limit and the per-IP rule (`sfsgl --help`).
 - Upload size limit, 50 MB by default (`max_upload_size_mb`, `--max-upload-mb`).
 - `from SFSGL import SFSGL, FileGather, FileShare`.
-- Tests and a GitHub Actions workflow for Python 3.9–3.13.
+- Tests, and a GitHub Actions workflow running them on Python 3.10–3.13.
 
 ### Changed
 - Requires Python 3.9 or newer.
