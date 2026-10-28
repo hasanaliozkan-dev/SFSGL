@@ -25,6 +25,7 @@
 - Requires Python 3.9 or newer.
 - Build artifacts (`build/`, `dist/`, `*.egg-info`, `__pycache__`) are no longer tracked in git.
 - Removed the unused Font Awesome font from the package.
+- Removed the unused `SFSGL/requirements.txt` (its outdated `Flask==3.1.0` pin triggered a security alert; the package itself depends on `flask>=2.0`).
 
 ## 0.1.11 (2026-07-29)
 - Latest release on PyPI before the changes above.
