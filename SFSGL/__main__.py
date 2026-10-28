@@ -1,0 +1,4 @@
+from .sfsgl import main
+
+if __name__ == "__main__":
+    main()

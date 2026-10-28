@@ -8,12 +8,6 @@
     <title>Upload Files</title>
     
     <style>
-        @font-face {
-            font-family: 'Font Awesome 6 Free';
-            font-style: normal;
-            font-weight: 900;
-            src: url('spel/static/fa-solid-900.woff2') format('woff2');
-        }
         /* General styling */
         body {
             font-family: Arial, sans-serif;
@@ -146,7 +140,7 @@
             </span>
             <p>Drag and drop files here, or click to select</p>
             <em><span>Allowed file types:  {{allowed_file}}</span></em>
-            <input type="file" name="file" id="fileInput" style="display: none;" onchange="handleFileSelect(event)" multiple>
+            <input type="file" name="file" id="fileInput" style="display: none;" onchange="handleFileSelect(event)"{% if multiple %} multiple{% endif %}>
         </div>
         <div id="fileList" class="file-list"></div>
         <input type="submit" value="Upload">
@@ -183,9 +177,13 @@
     // Display list of selected or dropped files
     function displayFileList(files) {
         const fileListDiv = document.getElementById('fileList');
-        fileListDiv.innerHTML = ''; // Clear current file list
-        const fileNames = Array.from(files).map(file => `<li>${file.name}</li>`).join('');
-        fileListDiv.innerHTML = `<ul>${fileNames}</ul>`;
+        const list = document.createElement('ul');
+        for (const file of files) {
+            const item = document.createElement('li');
+            item.textContent = file.name; // text, not HTML, so odd file names can't inject markup
+            list.appendChild(item);
+        }
+        fileListDiv.replaceChildren(list);
     }
 
     // Trigger the file input dialog when the drop-area is clicked
@@ -198,7 +196,6 @@
         if (!this.files.length) {
             document.getElementById('drop-area').style.backgroundColor = '#fafafa';
             document.getElementById('fileList').innerHTML = '';
-            document.getElementById('drop-area').innerHTML = `<i class="fas fa-cloud-upload-alt"></i><p>Drag and drop files here, or click to select</p>`;
         }
     });
 </script>
